@@ -2,7 +2,13 @@
     <ngb-tab *ngFor="let city of cities">
         <ng-template ngbTabTitle> {{city.name}}</ng-template>
         <ng-template ngbTabContent>
-            <app-weather [city]="city"></app-weather>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{city.name}} weather</h5>
+                        <app-weather [city]="city"></app-weather>
+                        <a href="#" class="btn btn-primary">Diagram</a>
+                    </div>
+                </div>
         </ng-template>
     </ngb-tab>
 </ngb-tabset>
