@@ -1,0 +1,8 @@
+.card{
+    display:inline-block;
+    height: 370px;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 400px;
+    background-color: rgba(0, 0, 0, 0.658);
+    }

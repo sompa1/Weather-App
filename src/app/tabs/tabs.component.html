@@ -1,14 +1,10 @@
+<div>
 <ngb-tabset type="pills">
     <ngb-tab *ngFor="let city of cities">
         <ng-template ngbTabTitle> {{city.name}}</ng-template>
         <ng-template ngbTabContent>
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">{{city.name}} weather</h5>
-                        <app-weather [city]="city"></app-weather>
-                        <a href="#" class="btn btn-primary">Diagram</a>
-                    </div>
-                </div>
+            <app-weather [city]="city"></app-weather>
         </ng-template>
     </ngb-tab>
 </ngb-tabset>
+</div>
