@@ -1,0 +1,8 @@
+<ngb-tabset type="pills">
+    <ngb-tab *ngFor="let city of cities">
+        <ng-template ngbTabTitle> {{city.name}}</ng-template>
+        <ng-template ngbTabContent>
+            <app-weather [city]="city"></app-weather>
+        </ng-template>
+    </ngb-tab>
+</ngb-tabset>
