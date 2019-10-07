@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TabsComponent } from './tabs/tabs.component';
-import { ModalComponent, ModalContent } from './modal/modal.component';
+import { ModalComponent} from './modal/modal.component';
+import { ModalContentComponent } from './modal/modal.content';
 import { WeatherComponent } from './weather/weather.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
@@ -17,7 +19,7 @@ import { HomeComponent } from './home/home.component';
     AppComponent,
     TabsComponent,
     ModalComponent,
-    ModalContent,
+    ModalContentComponent,
     WeatherComponent,
     LoginComponent,
     HomeComponent,
@@ -29,10 +31,11 @@ import { HomeComponent } from './home/home.component';
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent, ModalComponent],
-  entryComponents: [ModalContent],
+  entryComponents: [ModalContentComponent],
   exports: [ModalComponent]
 })
 export class AppModule { }
