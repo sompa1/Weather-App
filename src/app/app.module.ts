@@ -34,8 +34,8 @@ import { HomeComponent } from './home/home.component';
     ReactiveFormsModule
   ],
   providers: [],
-  bootstrap: [AppComponent, ModalComponent],
+  bootstrap: [AppComponent],
   entryComponents: [ModalContentComponent],
-  exports: [ModalComponent]
+  exports: []
 })
 export class AppModule { }

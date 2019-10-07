@@ -10,7 +10,13 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                        <p *ngIf="loginError">
+                            <ngb-alert type="danger" [dismissible]="false"><strong>Hiba :(</strong> Hibás felhasználónév vagy jelszó!</ngb-alert>
+                        </p>
+                        <p *ngIf="inputError">
+                            <ngb-alert type="warning" [dismissible]="false"><strong>Hiba :(</strong> Minden menző kitöltése kötelező!</ngb-alert>
+                        </p>
+                    <form [formGroup]="loginForm" (ngSubmit)="loginClicked()">
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
@@ -27,7 +33,7 @@
                         <div class="row align-items-center remember">
                             <input type="checkbox">Remember Me
                         </div>
-                        <button type="submit" [disabled]="!profileForm.valid" class= "btn float-right login_btn">Submit</button>
+                        <button type="submit" [disabled]="!loginForm.valid" class= "btn float-right login_btn">Login</button>
                     </form>
                 </div>
                 <div class="card-footer">

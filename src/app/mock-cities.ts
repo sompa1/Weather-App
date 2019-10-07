@@ -1,13 +1,13 @@
 import {City} from './city';
 
 export const CITIES: City[] = [
-  { id: 1, name: 'London' },
-  { id: 2, name: 'Budapest' },
-  { id: 3, name: 'Barcelona' },
-  { id: 4, name: 'Paris' },
-  { id: 5, name: 'Berlin' },
-  { id: 6, name: 'Madrid' },
-  { id: 7, name: 'Greenwich' },
-  { id: 8, name: 'Sydney' },
-  { id: 9, name: 'Rome' },
+  { userId: 1, name: 'London' },
+  { userId: 2, name: 'Budapest' },
+  { userId: 3, name: 'Barcelona' },
+  { userId: 4, name: 'Paris' },
+  { userId: 5, name: 'Berlin' },
+  { userId: 6, name: 'Madrid' },
+  { userId: 7, name: 'Greenwich' },
+  { userId: 8, name: 'Sydney' },
+  { userId: 9, name: 'Rome' },
 ];
