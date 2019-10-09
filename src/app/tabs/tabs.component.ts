@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 import { City } from '../city';
-import { CITIES } from '../mock-cities';
 
 @Component({
   selector: 'app-tabs',
@@ -9,8 +8,7 @@ import { CITIES } from '../mock-cities';
 })
 export class TabsComponent implements OnInit {
 
-  cities = CITIES;
-  selectedcity: City;
+  @Input() public cities: City[];
 
   constructor() { }
 

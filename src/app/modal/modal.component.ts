@@ -1,16 +1,21 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { ModalContentComponent } from './modal.content';
+import {Component} from '@angular/core';
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { Output, EventEmitter } from '@angular/core';
 @Component({
-  selector: 'app-modal-component',
+  selector: 'app-modal',
   templateUrl: './modal.component.html'
 })
-
 export class ModalComponent {
+  newCity = '';
+  @Output() addNewCity = new EventEmitter();
+
   constructor(private modalService: NgbModal) {}
 
-  open() {
-    const modalRef = this.modalService.open(ModalContentComponent);
-    modalRef.componentInstance.name = 'World';
+  open(content) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      if (this.newCity !== '') {
+        this.addNewCity.emit(this.newCity); // létrehozunk egy új tabot
+      }
+    });
   }
 }

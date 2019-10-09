@@ -1,14 +1,9 @@
 export class City {
     userId: number;
     name: string;
-    temperature?: number;
-    humidity?: number;
-    pressure?: number;
-    windspeed?: number;
-    winddeg?: number;
 
-    constructor(name: string, userId: number) {
-        this.name = name;
+    constructor( userId: number, name: string) {
         this.userId = userId;
+        this.name = name;
     }
 }

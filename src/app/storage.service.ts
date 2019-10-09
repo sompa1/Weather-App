@@ -28,18 +28,22 @@ export class StorageService {
   }
 
   getLoggedUserId() {
-    return localStorage.getItem('loggedUserId');
+    return +localStorage.getItem('loggedUserId');
   }
 
   getCitiesByUserId(id) {
     const cities: any[] = JSON.parse(localStorage.getItem('cities')); // lekérjük az összes várost
     const userCities: any[] = [];
-    cities.forEach( cityy => {
-      if ( cityy.userId === id) {
-        userCities.push(cityy);
-      }
-    });
-    return userCities;
+    if (cities == null) {
+      return userCities;
+    } else {
+      cities.forEach( cityy => {
+        if ( cityy.userId === id) {
+          userCities.push(cityy);
+        }
+      });
+      return userCities;
+    }
   }
 
   addCityByUserId(id, cityname) {

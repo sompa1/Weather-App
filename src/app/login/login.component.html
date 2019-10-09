@@ -14,27 +14,25 @@
                             <ngb-alert type="danger" [dismissible]="false"><strong>Hiba :(</strong> Hibás felhasználónév vagy jelszó!</ngb-alert>
                         </p>
                         <p *ngIf="inputError">
-                            <ngb-alert type="warning" [dismissible]="false"><strong>Hiba :(</strong> Minden menző kitöltése kötelező!</ngb-alert>
+                            <ngb-alert type="warning" [dismissible]="false"><strong>Hiba :(</strong> Minden mező kitöltése kötelező!</ngb-alert>
                         </p>
-                    <form [formGroup]="loginForm" (ngSubmit)="loginClicked()">
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
                             </div>
-                            <input type="text" class="form-control" formControlName="userName" required>
+                            <input type="text" class="form-control" placeholder="Felhasználónév" [(ngModel)]="user.userName" required>
                             
                         </div>
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-key"></i></span>
                             </div>
-                            <input type="text" class="form-control" formControlName="password" required>
+                            <input type="password" class="form-control" placeholder="Jelszó" [(ngModel)]="user.password" required>
                         </div>
                         <div class="row align-items-center remember">
                             <input type="checkbox">Remember Me
                         </div>
-                        <button type="submit" [disabled]="!loginForm.valid" class= "btn float-right login_btn">Login</button>
-                    </form>
+                        <button type="button" class= "btn float-right login_btn" (click)="loginClicked()">Login</button>
                 </div>
                 <div class="card-footer">
                     <div class="d-flex justify-content-center links">

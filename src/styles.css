@@ -18,7 +18,7 @@ h1 {
       font-family: 'Numans', sans-serif;
   }
   body, input[type="text"], button {
-    color: #333;
+    color: #1271ff;
     font-family: Cambria, Georgia;
   }
 
@@ -31,7 +31,7 @@ nav a {
   display: inline-block;
   border-radius: 4px;
   color: black;
-  background-color: rgb(18, 113, 255);
+  background-color: #1271ff;
 }
 
 nav a:hover {

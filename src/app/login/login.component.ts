@@ -12,7 +12,7 @@ import { StorageService } from '../storage.service';
 })
 export class LoginComponent implements OnInit {
 
-  user: User = {
+  user: User =  {
     id: 0,
     userName: '',
     password: ''
@@ -22,40 +22,12 @@ export class LoginComponent implements OnInit {
   loginError = false;
   inputError = false;
 
-  loginForm = new FormGroup( {
-    userName: new FormControl('', Validators.required),
-    password: new FormControl('', Validators.required),
-  });
-
   constructor( public router: Router, public storageService: StorageService) { }
 
   ngOnInit() { // a users tömbbe kigyűjtjük a már létező usereket az inicializálás során
     if (this.storageService.getUsers()) {
       this.users = this.storageService.getUsers();
     }
-  }
-
-  loginClicked() {
-    let found = false;
-    this.users.forEach( userr => {
-      if (userr.userName === this.user.userName) {
-        found = true;
-        if (userr.password === this.user.password) {
-          this.storageService.setLoggedUser(userr.id); // beállítjuk, hogy ő a bejelentkezett user
-          this.router.navigate(['home']); // beléptetjük az oldalára
-        } else {
-          this.loginError = true;
-        }
-      }
-    });
-
-    if (!found) {
-      this.user.id = this.users.length;
-      this.storageService.addNewUser(this.user);
-      this.storageService.setLoggedUser(this.user.id);
-      this.router.navigate(['home']);
-    }
-
   }
 
   checkInputs() {
@@ -66,6 +38,30 @@ export class LoginComponent implements OnInit {
     }
     this.inputError = false;
     return true;
+  }
+
+  loginClicked() {
+    if (this.checkInputs()) {
+      let found = false;
+      this.users.forEach( userr => {
+        if (userr.userName === this.user.userName) {
+          found = true;
+          if (userr.password === this.user.password) {
+            this.storageService.setLoggedUser(userr.id); // beállítjuk, hogy ő a bejelentkezett user
+            this.router.navigate(['home']); // beléptetjük az oldalára
+          } else {
+            this.loginError = true;
+          }
+        }
+      });
+
+      if (!found) {
+        this.user.id = this.users.length;
+        this.storageService.addNewUser(this.user);
+        this.storageService.setLoggedUser(this.user.id);
+        this.router.navigate(['home']);
+      }
+    }
   }
 
 

@@ -1,4 +1,4 @@
 <div class="flex-container">
-<app-tabs></app-tabs>
-<app-modal-component></app-modal-component>
+<app-tabs *ngIf="cities !== null" [cities] = "cities" ></app-tabs>
+<app-modal (addNewCity)="addNewCity($event)"></app-modal>
 </div>
