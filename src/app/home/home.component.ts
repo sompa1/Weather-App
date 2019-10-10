@@ -24,10 +24,10 @@ export class HomeComponent implements OnInit {
   addNewCity(cityName) {
     this.newCity = cityName;
     // console.log(cityName);
-    this.weatherService.getCurrentWeather(this.newCity).subscribe(res => {
+    // this.weatherService.getCurrentWeather(this.newCity).subscribe(res => {
     // this.currentCity = new City(this.storageService.getLoggedUserId(), this.newCity, res);
-    console.log(res);
-    });
+    // console.log(res.main.temp);
+    // });
     this.storageService.addCityByUserId(this.storageService.getLoggedUserId(), this.newCity);
     this.cities = this.storageService.getCitiesByUserId(this.storageService.getLoggedUserId());
     // this.actualCity = this.cities[0];

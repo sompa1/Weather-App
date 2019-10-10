@@ -11,7 +11,7 @@ export class WeatherService {
   appID = 'a14a9432ece50054729fcb301d820f17';
 
   getCurrentWeather(cityName): Observable <any> {
-    return this.http.get('http://api.openweathermap.org/data/2.5/weather?q=' + cityName + '&appid=' + this.appID);
+    return this.http.get('http://api.openweathermap.org/data/2.5/weather?q=' + cityName + '&appid=' + this.appID + '&units=metric');
   }
 
   getForecast5Weather(cityName): Observable <any> {

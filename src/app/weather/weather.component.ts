@@ -8,33 +8,17 @@ import { City } from '../city';
   templateUrl: './weather.component.html',
   styleUrls: ['./weather.component.css']
 })
-export class WeatherComponent implements OnInit, OnChanges {
+export class WeatherComponent implements OnChanges {
 
   @Input() city: City;
-  resobj: any;
-  temperature: string;
-  humidity: string;
-  pressure: string;
-  windspeed: string;
-  winddeg: string;
+  currentWeather: any[] = [];
 
-  constructor( private weatherService: WeatherService, private storageService: StorageService) { }
-
-  ngOnInit() {
-  }
+  constructor( private weatherService: WeatherService) { }
 
   ngOnChanges() {
-
-    if ( this.city !== null ) {
-      this.weatherService.getCurrentWeather(this.city).subscribe(res => {
-        this.resobj = JSON.parse(res);
+    this.currentWeather = [];
+    this.weatherService.getCurrentWeather(this.city.name).subscribe(res => {
+      this.currentWeather.push(res);
     });
-    this.temperature = this.resobj.main.temp;
-    this.pressure = this.resobj.main.pressure;
-    this.humidity = this.resobj.main.humidity;
-    this.windspeed = this.resobj.wind.speed;
-    this.winddeg = this.resobj.wind.deg;
   }
-}
-
 }

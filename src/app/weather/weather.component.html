@@ -1,13 +1,13 @@
 <div class="card">
-        <div class="card-body">
+        <div class="card-body" *ngIf="currentWeather[0] !== undefined">
             <div *ngIf="city"></div>
             <h5 class="card-title">{{city.name}} weather information</h5>
 
-            <div>temperature: {{temperature}}</div>
-            <div>humidity: {{humidity}}</div>
-            <div>pressure: {{pressure}}</div>
-            <div>windspeed: {{windspeed}}</div>
-            <div>wind deg: {{winddeg}}</div>
+            <div>temperature: {{ currentWeather[0].main.temp }}°C</div>
+            <div>humidity: {{ currentWeather[0].main.humidity }}%</div>
+            <div>pressure: {{ currentWeather[0].main.pressure }}hPa</div>
+            <div>wind speed: {{ currentWeather[0].wind.speed }}m/s</div>
+            <div>wind direction: {{ currentWeather[0].wind.deg }}°</div>
         </div>
 
 </div>
@@ -18,3 +18,6 @@
         </div>
 
 </div>
+<p *ngIf="currentWeather[0] === undefined">
+    Először adj hozzá egy új várost!
+</p>
